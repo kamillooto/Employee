@@ -18,7 +18,7 @@ public class Employee {
             strategy = GenerationType.SEQUENCE,
             generator = "employee_sequence"
     )
-    private Integer id;
+    private Long id;
     private String name;
     private String email;
     private LocalDate doe;
@@ -28,7 +28,7 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(Integer id, String name, String email, LocalDate doe) {
+    public Employee(Long id, String name, String email, LocalDate doe) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -41,11 +41,11 @@ public class Employee {
         this.doe = doe;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

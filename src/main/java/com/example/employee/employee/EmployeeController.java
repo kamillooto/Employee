@@ -25,4 +25,9 @@ public class EmployeeController {
     public void registerNewEmployee(@RequestBody Employee employee) {
         employeeService.registerNewEmployee(employee);
     }
+
+    @DeleteMapping(path = "{employeeId}")
+    public void deleteEmployee(@PathVariable("employeeId") Long employeeId) {
+        employeeService.deleteEmployee(employeeId);
+    }
 }
