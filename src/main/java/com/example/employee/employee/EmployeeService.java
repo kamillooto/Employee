@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmployeeService {
@@ -17,5 +18,14 @@ public class EmployeeService {
 
     public List<Employee> getEmployees() {
         return employeeRepository.findAll();
+    }
+
+    public void registerNewEmployee(Employee employee) {
+        Optional<Employee> employeeOptional = employeeRepository
+                .findByEmail(employee.getEmail());
+        if (employeeOptional.isPresent()) {
+            throw new IllegalStateException("email taken");
+        }
+        employeeRepository.save(employee);
     }
 }
