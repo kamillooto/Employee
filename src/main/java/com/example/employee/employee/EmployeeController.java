@@ -30,4 +30,12 @@ public class EmployeeController {
     public void deleteEmployee(@PathVariable("employeeId") Long employeeId) {
         employeeService.deleteEmployee(employeeId);
     }
+
+    @PutMapping(path = "{employeeId}")
+    public void updateEmployee(
+            @PathVariable("employeeId") Long employeeId,
+            @RequestParam(required = false) String name,
+            @RequestParam(required = false) String email) {
+        employeeService.updateEmployee(employeeId, name, email);
+    }
 }
